@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../layout/Button";
 import axios from "axios";
 import backsound from "../assets/audio/backsound.mp3";
+import ketoprakImage from "../assets/img/ketoprak.jpg"; // Import the image
 
 const Home = () => {
   const [time, setTime] = useState("");
@@ -63,20 +64,20 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-row justify-between items-center lg:px-32 px-5 bg-[url('./assets/img/ketoprak.jpg')] bg-cover bg-no-repeat">
+    <div
+      className="min-h-screen flex flex-row justify-between items-center lg:px-32 px-5 bg-cover bg-no-repeat"
+      style={{
+        backgroundImage: `url(${ketoprakImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <div className="w-full lg:w-2/3 space-y-5">
         <h1 className="text-white font-semibold text-6xl">Sampurasun</h1>
-        <p className="text-white text-xl md:text-2xl">
-          Teman-teman semua, dari laman ini kita akan mengenal kekayaan khas
-          Jawa Barat. Terimakasih kepada teman-teman semua yang ingin melihat
-          website ini. Semoga Tuhan memberkati.
-        </p>
-        <p className="text-white text-lg md:text-xl italic">
-          "Rerencangan sadaya, ti laman ieu urang bade ngawanohkeun kadaharan
-          khas Jawa Barat. Hatur nuhun ka rerencangan sadaya nu bade manggihan
-          abdi dina laman ieu. Mugi gusti ngaberkahan rerencangan."
-        </p>
-        <p className="text-white font-semibold text-2xl">
+
+        <p className="text-white font-semibold text-2xl" style={{ marginTop: "100px" }}>
+          {/* Adjusted inline style here */}
           Waktu saat ini: {time}
         </p>
         {weatherData && (
@@ -96,4 +97,5 @@ const Home = () => {
     </div>
   );
 };
+
 export default Home;
